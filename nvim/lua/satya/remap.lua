@@ -43,3 +43,5 @@ vim.keymap.set('t', '<C-w>h', "<C-\\><C-n><C-w>h", {silent = true})
 vim.keymap.set("n", "<leader><leader>", function()
 	vim.cmd("so")
 end)
+vim.keymap.set("n", "<leader>fg", ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>")
+
