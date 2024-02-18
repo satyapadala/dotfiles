@@ -1,7 +1,17 @@
-vim.opt.clipboard = "unnamedplus"
-vim.wo.number = true
-vim.wo.relativenumber = true
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
+  })
+end
+vim.opt.rtp:prepend(lazypath)
 
-
--- setting custom file types
-vim.cmd[[autocmd BufRead, BufNewFile *.templ set filetype=html]]
+require("lazy").setup("satya.plugins", opts)
+require("satya.remap")
+require("satya.config")
+require("satya.plugins")
