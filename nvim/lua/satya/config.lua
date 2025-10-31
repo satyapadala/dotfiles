@@ -13,5 +13,4 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup("satya.plugins", opts)
 require("satya.remap")
-require("satya.config")
 require("satya.plugins")

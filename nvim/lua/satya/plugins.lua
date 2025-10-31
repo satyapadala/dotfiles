@@ -62,6 +62,7 @@ return {
 	"ojroques/vim-oscyank",
 	-- debugging
 	"mfussenegger/nvim-dap",
+	"nvim-neotest/nvim-nio",
 	"rcarriga/nvim-dap-ui",
 	"theHamsta/nvim-dap-virtual-text",
 	"nvim-telescope/telescope-dap.nvim",
