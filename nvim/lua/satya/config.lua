@@ -10,7 +10,7 @@ if not vim.loop.fs_stat(lazypath) then
   })
 end
 vim.opt.rtp:prepend(lazypath)
+vim.wo.relativenumber = true
 
-require("lazy").setup("satya.plugins", opts)
-require("satya.remap")
-require("satya.plugins")
+
+require("lazy").setup("satya.plugins")

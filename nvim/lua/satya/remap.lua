@@ -43,5 +43,31 @@ vim.keymap.set('t', '<C-w>h', "<C-\\><C-n><C-w>h", {silent = true})
 vim.keymap.set("n", "<leader><leader>", function()
 	vim.cmd("so")
 end)
+
+-- Telescope live grep with args and other mappings
 vim.keymap.set("n", "<leader>fg", ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>")
+vim.keymap.set("n", "<leader>fl", ":Telescope find_files<CR>")
+vim.keymap.set("n", "<leader>fb", ":Telescope buffers<CR>")
+vim.keymap.set("n", "<leader>fh", ":Telescope help_tags<CR>")
+
+
+
+-- Hover diagnostic
+vim.keymap.set("n", "K", function()
+	local winid = require("ufo").get_winid()
+	if not winid then
+		-- vim.lsp.buf.hover()
+		vim.diagnostic.open_float()
+	end
+end)
+
+-- Shortcut to jump between diagnostic hints/errors
+vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
+vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
+
+
+-- Claude Code Remappings
+vim.keymap.set('n', '<leader>cc', '<cmd>ClaudeCode<CR>', { desc = 'Toggle Claude Code' })
+-- Gemini Code Remappings
+vim.keymap.set('n', '<leader>cg', '<cmd>Gemini<CR>', { desc = 'Toggle Gemini Code' })
 
